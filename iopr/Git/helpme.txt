@@ -1,0 +1,38 @@
+# 基础配置:https://www.runoob.com/git/git-remote-repo.html
+
+# 增加关联仓库
+git remote add <local_git_name> <url> # 
+
+# 一般提交
+git add 文件(夹)
+git commit -m 备注
+git pull <local_git_name> master #
+git push <local_git_name> master # 提交更改
+
+# 删除本地仓库
+git remote rm <local_git_name>
+
+# 本地同步远程仓库
+git pull --rebase <local_git_name> master
+
+# 取消commit
+1.git log 查看想要回退到的headid
+2.git reset head <headid>
+
+# 取消add
+1.git status 查看帮助
+
+# 删除远程仓库的文件
+先同步,然后再删除
+1.在本地直接rm
+2.git rm <filename>
+3.git commit -m <备注>
+4.git push -u <local_git_name> master
+
+
+
+
+
+
+# 说明
+1.上传前不允许远程仓库包含自己本地没有的文件,所以需要先同步远程仓库

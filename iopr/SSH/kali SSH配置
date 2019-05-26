@@ -1,0 +1,7 @@
+免密码登陆
+    1.在服务器~/.ssh下创建authorized_keys
+    2.客户端生成rsa公私钥 -> ssh-keygen -t rsa
+    3.将生成的公钥id_rsa.pub的内容写入服务器的authorized_keys
+    4.修改服务器的.ssh跟authorized_keys权限 -> chmod 700 .ssh;chmod 600 authorized_keys
+
+简易登陆

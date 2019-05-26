@@ -1,0 +1,5 @@
+-fno-stack-protector   # No Canary
+
+readelf -S <name> | grep ".bss" # 查看程序bss段位置
+objdump -d -j .plt <name> # 查看程序plt表项
+objdump -s -j .rel.plt bof # 查看程序.rel.plt段

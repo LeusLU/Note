@@ -1,0 +1,8 @@
+环境:Kali Linux 2019.a
+解决办法如下：
+sudo mysqld_safe --user=root --skip-grant-tables --skip-networking &
+输入命令之后，如果提示信息为：
+mysqld_safe A mysqld process already exists
+表示mysqld_safe进程存在，可以通过
+ps -A|grep mysql # 查看mysqld_safe进程ID
+kill -9 -xxxx    # 终结ID为xxxx的进程

